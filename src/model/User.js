@@ -41,6 +41,11 @@ const userSchema = new mongoose.Schema(
       maxlength: 255,
     },
 
+    cause: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Cause"
+    }],
+
     role: {
       type: String,
       enum: [

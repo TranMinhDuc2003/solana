@@ -74,5 +74,35 @@ class Auth {
       next(error);
     }
   }
+
+  async get(req, res, next) {
+    try {
+      const data = await User.find().populate("cause");
+      if (data) {
+        return res.status(200).json({
+          success: true,
+          data,
+          message: "get successfuly",
+        });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getDetail(req, res, next) {
+    try {
+      const data = await User.findById(req.params.id).populate("cause");
+      if (data) {
+        return res.status(200).json({
+          success: true,
+          data,
+          message: "get successfuly",
+        });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 export default new Auth();

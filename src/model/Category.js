@@ -11,6 +11,10 @@ const categorySchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    cause: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Cause"
+    }]
   },
   {
     timestamps: true,
